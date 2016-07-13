@@ -14,6 +14,11 @@
 // otherwise if a number is odd then % with 2 will return 1
 
 $(document).ready(function() {
+
+
+// $("#txt").css({color: "red"});
+
+
   function startTime() {
     var today = new Date();
     var h = today.getHours();
@@ -24,6 +29,7 @@ $(document).ready(function() {
     h = checkTime(h);
     m = checkTime(m);
     s = checkTime(s);
+    updateColor(s); 
     $("#txt").html(h + ":" + m + ":" + s + ampm)
     setTimeout(startTime, 500);
   }
@@ -50,5 +56,14 @@ $(document).ready(function() {
     }
   }
 
-  startTime();
+  function updateColor(s) {
+    if (s % 2 === 0) {
+      $("#txt").css({ color: "red", fontSize: "25px"});
+    } else { 
+      $("#txt").css({ color: "yellow", fontSize: "40px"});
+
+      }
+    }
+    
+   startTime();
 });
