@@ -30,6 +30,7 @@ $(document).ready(function() {
     m = checkTime(m);
     s = checkTime(s);
     updateColor(s); 
+    backColor(m);
     $("#txt").html(h + ":" + m + ":" + s + ampm)
     setTimeout(startTime, 500);
   }
@@ -58,12 +59,17 @@ $(document).ready(function() {
 
   function updateColor(s) {
     if (s % 2 === 0) {
-      $("#txt").css({ color: "red", fontSize: "25px"});
+       $("#txt").css({ color: "red", fontSize: "25px"});
     } else { 
-      $("#txt").css({ color: "yellow", fontSize: "40px"});
+        $("#txt").css({ color: "yellow", fontSize: "40px"});
 
+     }
+    }
+
+    function backColor(m) {
+      if (m % 2 === 1) {
+        $("#txt").css({background: "pink"});
       }
     }
-    
    startTime();
 });
